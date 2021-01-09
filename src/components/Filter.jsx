@@ -1,36 +1,33 @@
 import React from 'react'
 import { Menu } from 'semantic-ui-react'
 
-const Filter = () => {
-    
-    const [activeItem, setActiveItem] = React.useState('all');
-
-    const  handleClick = (name) => {setActiveItem(name)};
+const Filter = ({ setFilter, filter }) => {
 
     return (
         <Menu secondary>
             <Menu.Item
                 name='Все'
-                active={activeItem === 'all'}
-                onClick={() => handleClick('all')}
+                active={filter === 'all'}
+                onClick={() => setFilter('all')}
             />
             <Menu.Item
-                name='Популярные'
-                active={activeItem === 'popular'}
-                onClick={() => handleClick('popular')}
+                name='Автор'
+                active={filter === 'author'}
+                onClick={() => setFilter('author')}
             />
             <Menu.Item
                 name='Дорогие'
-                active={activeItem === 'hight_coast'}
-                onClick={() => handleClick('hight_coast')}
+                active={filter === 'hight_coast'}
+                onClick={() => setFilter('hight_coast')}
             />
             <Menu.Item
                 name='Дешевые'
-                active={activeItem === 'low_coast'}
-                onClick={() => handleClick('low_coast')}
+                active={filter === 'low_coast'}
+                onClick={() => setFilter('low_coast')}
             />
         </Menu>
     )
 }
+
 
 export default Filter;
