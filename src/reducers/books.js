@@ -1,7 +1,7 @@
 const initialState = {
     isReady: false,
     items: null,
-    ids: [],
+    filter: 'all',
 }
 
 const booksReduser = (state = initialState, action) => {
@@ -11,6 +11,11 @@ const booksReduser = (state = initialState, action) => {
                 ...state,
                 items: action.payload,
                 isReady: true,
+            }
+        case 'SET_FILTER':
+            return {
+                ...state,
+                filter: action.payload,
             }
         case "SET_IS_READY":
             return {

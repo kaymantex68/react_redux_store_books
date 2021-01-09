@@ -12,7 +12,7 @@ const cartReduser = (state = initialState, action) => {
         case "REMOVE_BOOK_FROM_CART":
             return {
                 ...state,
-                items: state.items.filter(item=> item.id != action.payload.id )
+                items: state.items.filter(item=> item.id !== action.payload.id )
             }
         default:
             return state;
