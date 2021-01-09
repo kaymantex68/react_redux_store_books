@@ -1,29 +1,35 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { setBooks } from './actions/books'
-
+import { setBooks } from './actions/books';
+import axios from 'axios';
 
 function App(props) {
-  const { books } = props.books;
-  const { setBooks } = props;
-  console.info('PROPS-BOOKS: ', books);
+
+  React.useState(() => {
+    const { setBooks } = props;
+    axios.get('/books.json').then(response => {
+      setBooks(response.data);
+    })
+  })
+
+  const { books } = props;
+
   return (
     <>
-      <button onClick={()=>{setBooks(['new booksssssss'])}}>добавить все книги</button>
-      {
-        books.map((item, key) => {
-          return (
-            <div key={key}>
-              {item}
-            </div>
-          )
-        })
-      }
+      <ul>
+        {
+          !books ? 'загрузка...' : books.map((book, key) => {
+            return (
+              <li key={`book_li_key_${key}`} style={{ color: "black" }}><b>{book.title}</b> - {book.author}</li>
+            )
+          })
+        }
+      </ul>
     </>
   );
 }
-const mapStateToProps = (state) => ({
-  ...state
+const mapStateToProps = ({ books }) => ({
+  books: books.items
 })
 
 const mapDispatchToProps = (dispatch) => ({

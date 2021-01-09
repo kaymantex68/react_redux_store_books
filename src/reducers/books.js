@@ -1,6 +1,7 @@
 const initialState = {
-    books: [],
-    ids: []
+    isReady: false,
+    items: null,
+    ids: [],
 }
 
 const booksReduser = (state = initialState, action) => {
@@ -8,12 +9,13 @@ const booksReduser = (state = initialState, action) => {
         case 'SET_BOOKS':
             return {
                 ...state,
-                books: action.payload
+                items: action.payload,
+                isReady: true,
             }
-        case 'ADD_BOOKS':
+        case "SET_IS_READY":
             return {
                 ...state,
-                books: [...state.books, action.payload]
+                isReady: action.payload,
             }
         default:
             return state;
