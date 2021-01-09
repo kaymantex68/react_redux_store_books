@@ -8,7 +8,6 @@ const BookCard = ({ title, author, price, image }) => {
             <Image src={image} wrapped ui={false} />
             <Card.Content >
                 <Card.Header>{title}</Card.Header>
-                <Card.Meta>Joined in 2016</Card.Meta>
                 <Card.Description>
                     {author}
                 </Card.Description>
