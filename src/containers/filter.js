@@ -1,5 +1,4 @@
 import { bindActionCreators } from 'redux';
-import * as booksActions from '../actions/books';
 import * as filterActions from '../actions/filter';
 import Filter from '../components/Filter.jsx';
 import {connect} from 'react-redux';

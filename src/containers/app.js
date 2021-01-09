@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as booksActions from '../actions/books';
-import * as filterActions from '../actions/filter';
 import App from '../components/App.jsx';
 import orderBy from 'lodash/orderBy.js';
 
@@ -15,6 +14,8 @@ const sortBy = (books, filter) => {
             return orderBy(books, 'price', 'asc');
         case 'author':
             return orderBy(books, 'author', 'asc');
+        default:
+            return books;
     }
 
 }
