@@ -1,7 +1,7 @@
 import React from 'react'
-import { Menu } from 'semantic-ui-react'
+import { Menu, Input } from 'semantic-ui-react'
 
-const Filter = ({ setFilter, filter }) => {
+const Filter = ({ setFilter, filter, searchQuery,setQuery }) => {
 
     return (
         <Menu secondary>
@@ -25,6 +25,9 @@ const Filter = ({ setFilter, filter }) => {
                 active={filter === 'low_coast'}
                 onClick={() => setFilter('low_coast')}
             />
+            <Menu.Item>
+                <Input value={searchQuery} onChange={(e)=>setQuery(e.target.value)} placeholder="введите запрос"></Input>
+            </Menu.Item>
         </Menu>
     )
 }

@@ -5,8 +5,9 @@ import {connect} from 'react-redux';
 
 
 
-const mapStateToProps = ({ books }) => ({
-    filter: books.filter
+const mapStateToProps = ({filter}) => ({
+    filter: filter.items,
+    searchQuery: filter.searchQuery,
 })
 
 const mapDispatchToProps = (dispatch) => ({

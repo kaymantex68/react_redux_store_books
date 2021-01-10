@@ -3,15 +3,15 @@ import axios from 'axios';
 
 import { Container, Card } from 'semantic-ui-react'
 
-import Menu from './Menu.jsx'
+
 import BookCard from './BookCard.jsx'
 import Filter from '../containers/filter'
-
+import Menu from '../containers/menu'
 import classes from './App.module.css'
 
 
 function App(props) {
-  console.info('PROPS: ',props)
+  console.info('PROPS: ', props)
   React.useState(() => {
     const { setBooks } = props;
     axios.get('/books.json').then(response => {
@@ -20,13 +20,13 @@ function App(props) {
   })
 
   const { books, isReady, setFilter } = props;
-  
+
   return (
-    
+
     <div className={classes.main_container}>
       <Container>
         <Menu />
-        <Filter setFilter={setFilter}/>
+        <Filter setFilter={setFilter} />
         <Card.Group itemsPerRow={4}>
           {
             !isReady ? 'Loading...'
