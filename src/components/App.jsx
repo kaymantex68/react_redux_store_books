@@ -4,7 +4,7 @@ import axios from 'axios';
 import { Container, Card } from 'semantic-ui-react'
 
 
-import BookCard from './BookCard.jsx'
+import BookCard from '../containers/bookCard'
 import Filter from '../containers/filter'
 import Menu from '../containers/menu'
 import classes from './App.module.css'
@@ -25,7 +25,7 @@ function App(props) {
 
     <div className={classes.main_container}>
       <Container>
-        <Menu />
+        <Menu/>
         <Filter setFilter={setFilter} />
         <Card.Group itemsPerRow={4}>
           {

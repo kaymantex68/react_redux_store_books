@@ -2,7 +2,8 @@ import React from 'react';
 import { Card, Icon, Image, Button } from 'semantic-ui-react'
 import classes from './BookCard.module.css'
 
-const BookCard = ({ title, author, price, image, onAdd }) => {
+const BookCard = (book) => {
+    const { title, author, price, image, addToCart,addedCount } = book;
     return (
         <Card fluid color='red' className={classes.card_container}>
             <Image src={image} wrapped ui={false} className={classes.card_container_img} />
@@ -16,7 +17,7 @@ const BookCard = ({ title, author, price, image, onAdd }) => {
                 <Icon name='rub' />
                 {price}
             </Card.Content>
-            <Button onClick={onAdd}>Добавить в корзину</Button>
+            <Button onClick={()=>addToCart(book)}>Добавить в корзину{addedCount>0 && `(${addedCount})`}</Button>
         </Card>
     )
 }

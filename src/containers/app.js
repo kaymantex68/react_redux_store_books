@@ -44,7 +44,7 @@ const mapStateToProps = ({ books, filter }) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     ...bindActionCreators(booksActions, dispatch),
-    ...bindActionCreators(booksFilter, dispatch)
+    ...bindActionCreators(booksFilter, dispatch),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
